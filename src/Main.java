@@ -7,6 +7,5 @@ public class Main {
         //ben Carpenter is here
     }
 }
-// DepositSlot.java
-// Represents the deposit slot of the ATM
+
 

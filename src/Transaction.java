@@ -1,4 +1,4 @@
-Twdnfenefweffewvvd// Transaction.java
+// Transaction.java
 // Abstract superclass Transaction represents an ATM transaction
 
 public abstract class Transaction {

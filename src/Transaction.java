@@ -1,4 +1,4 @@
-Twdnfenefweffewvvd// Transaction.java
+// Transaction.java
 // Abstract superclass Transaction represents an ATM transaction
 
 public abstract class Transaction {
@@ -7,9 +7,10 @@ public abstract class Transaction {
     private BankDatabase bankDatabase; // account info database
 
     // Transaction constructor invoked by subclasses using super()
-    public Transaction(int userAccountNumber, Screen atmScreen,
-                       BankDatabase atmBankDatabase) {
-
+    public Transaction(int userAccountNumber,
+                       Screen atmScreen,
+                       BankDatabase atmBankDatabase)
+    {
         accountNumber = userAccountNumber;
         screen = atmScreen;
         bankDatabase = atmBankDatabase;

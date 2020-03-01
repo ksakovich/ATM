@@ -9,6 +9,7 @@ public class Withdrawal extends Transaction
     public Withdrawal(int currentAccountNumber, Screen screen, BankDatabase bankDatabase, Keypad keypad, CashDispenser cashDispenser)
     {
         super(currentAccountNumber, screen, bankDatabase);
+        this.currentAccountNumber = currentAccountNumber;
         this.keypad = keypad;
         this.cashDispenser = cashDispenser;
         // we aren't setting amount until we know the amount the user wants to withdraw
@@ -16,7 +17,7 @@ public class Withdrawal extends Transaction
 
     public int displayWithdrawalMenu() {
         try {
-            wait(50000); // wait 5 seconds before timing out
+            //wait(50000); // wait 5 seconds before timing out
             getScreen().displayMessageLine("\nWithdraw:");
             getScreen().displayMessageLine("1 - $20");
             getScreen().displayMessageLine("2 - $40");
@@ -26,7 +27,7 @@ public class Withdrawal extends Transaction
             getScreen().displayMessageLine("6 - Exit");
             return keypad.getInput();
         }
-        catch(InterruptedException e) {
+        catch(Exception e) {
             // is it an error if the wait is interrupted, by user?
             getScreen().displayMessageLine(e.getMessage());
         }

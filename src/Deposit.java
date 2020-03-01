@@ -45,13 +45,13 @@ public class Deposit extends Transaction {
         }
         // might need another screen with Canceling transaction message
         }
-    }
+
 
     // ask user to enter the deposit amount
    private double promptForDepositAmount() {
 // Code here for prompt user for the deposit
        //input from screen
        // check whether the user canceled transaction or entered a valid amount
-
+return 0;
     }
 }

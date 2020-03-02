@@ -11,12 +11,12 @@ public class BalanceInquiry extends Transaction
         BankDatabase database = getBankDatabase();
         Screen screen = getScreen();
         int currentUserAccountNum = getAccountNumber();
-        double availableBalabce = database.getAvailableBalance(currentUserAccountNum);
+        double availableBalance = database.getAvailableBalance(currentUserAccountNum);
         double totalBalance = database.getTotalBalance(currentUserAccountNum);
-        if(availableBalabce != totalBalance)
+        if(availableBalance != totalBalance)
         {
             screen.displayMessage("Your available balance is: \n");
-            screen.displayDollarAmount(availableBalabce);
+            screen.displayDollarAmount(availableBalance);
             screen.displayMessage("\n Your total balance is: \n");
             screen.displayDollarAmount(totalBalance);
             screen.displayMessage("\n");

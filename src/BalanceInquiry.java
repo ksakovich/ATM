@@ -1,32 +1,28 @@
-public class BalanceInquiry extends Transaction
-{
-    public BalanceInquiry(int currentAccountNumber, Screen screen, BankDatabase bankDatabase)
-    {
-        super( currentAccountNumber, screen, bankDatabase);
+public class BalanceInquiry extends Transaction {
+    // BalanceInquiry constructor
+    public BalanceInquiry(int userAccountNumber, Screen atmScreen, BankDatabase atmBankDatabase) {
+        super(userAccountNumber, atmScreen, atmBankDatabase);
     }
 
+    // performs the transaction
     @Override
-    public void execute()
-    {
-        BankDatabase database = getBankDatabase();
-        Screen screen = getScreen();
-        int currentUserAccountNum = getAccountNumber();
-        double availableBalance = database.getAvailableBalance(currentUserAccountNum);
-        double totalBalance = database.getTotalBalance(currentUserAccountNum);
-        if(availableBalance != totalBalance)
-        {
-            screen.displayMessage("Your available balance is: \n");
-            screen.displayDollarAmount(availableBalance);
-            screen.displayMessage("\n Your total balance is: \n");
-            screen.displayDollarAmount(totalBalance);
-            screen.displayMessage("\n");
+    public void execute() {
 
-        }
-        else
-        {
-            screen.displayMessage("Your balance is: \n");
-            screen.displayDollarAmount(totalBalance);
-            screen.displayMessage("\n");
-        }
+        BankDatabase bankDatabase = getBankDatabase();
+        Screen screen = getScreen();
+
+        // get the available balance for the account involved
+        double availableBalance = bankDatabase.getAvailableBalance(getAccountNumber());
+
+        // get the total balance for the account involved
+        double totalBalance = bankDatabase.getTotalBalance(getAccountNumber());
+
+        // display the balance information on the screen
+        screen.displayMessageLine("\nBalance Information:");
+        screen.displayMessage(" - Available balance: ");
+        screen.displayDollarAmount(availableBalance);
+        screen.displayMessage("\n - Total balance: ");
+        screen.displayDollarAmount(totalBalance);
+        screen.displayMessageLine("");
     }
 }

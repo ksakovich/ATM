@@ -1,57 +1,74 @@
 
+// Deposit.java
 // Represents a deposit ATM transaction
 public class Deposit extends Transaction {
-    private double amount;
-    private Keypad keypad;
-    private DepositSlot depositSlot; // this is referring to depositSlot class
-    private final static int CANCELED = 0; // option to cancel transaction
+    private double amount; // amount to deposit
+    private Keypad keypad; // reference to keypad
+    private DepositSlot depositSlot; // reference to deposit slot
+    private final static int CANCELED = 0; // constant for cancel option
 
-    // This is the Deposit constructor
+    // Deposit constructor
     public Deposit(int userAccountNumber, Screen atmScreen, BankDatabase atmBankDatabase, Keypad atmKeypad,
                    DepositSlot atmDepositSlot) {
-        // initialize superclass
+        // initialize superclass variables
         super(userAccountNumber, atmScreen, atmBankDatabase);
+
+        // initialize references to keypad and deposit slot
         keypad = atmKeypad;
         depositSlot = atmDepositSlot;
-    }
-    // execute the transaction
+    } // end Deposit constructor
+
+    // perform transaction
     @Override
     public void execute() {
-        BankDatabase bankDatabase = getBankDatabase();
-        Screen screen = getScreen();
-        amount = promptForDepositAmount(); // get deposit amount from the user
+        BankDatabase bankDatabase = getBankDatabase(); // get reference
+        Screen screen = getScreen(); // get reference
 
-        // check if user entered a deposit amount or canceled
+        amount = promptForDepositAmount(); // get deposit amount from user
+
+        // check whether user entered a deposit amount or canceled
         if (amount != CANCELED) {
+            // request deposit envelope containing specified amount
+            screen.displayMessage("\nPlease insert a deposit envelope containing ");
+            screen.displayDollarAmount(amount);
+            screen.displayMessageLine(".");
 
-            screen.displayMessage("\nPlease insert your deposit envelope with :  " + amount + "dollars");
-            //screen.displayDollarAmount(amount);
-
-            // checking if  deposit envelope has been received
+            // receive deposit envelope
             boolean envelopeReceived = depositSlot.isEnvelopeReceived();
 
+            // check whether deposit envelope was received
             if (envelopeReceived) {
                 screen.displayMessageLine("\nYour envelope has been "
-                        + "accepted.\nThe money just deposited will not "
-                        + "be available right away." + " We are verifying available founds. ");
-     // credit account--> comes from data base and reflects the founds after deposit
+                        + "received.\nNOTE: The money just deposited will not "
+                        + "be available until we verify the amount of any " + "enclosed cash and your checks clear.");
+// credit account to reflect the deposit
                 bankDatabase.credit(getAccountNumber(), amount);
-            }
-            else
+            } // end if
+            else // deposit envelope not received
             {
                 screen.displayMessageLine(
-                        "\n Error: You did not insert an envelope."+"\n ATM terminated your transaction.");
-            }
-        }
-        // might need another screen with Canceling transaction message
-        }
+                        "\nYou did not insert an " + "envelope, so the ATM has canceled your transaction.");
+            } // end else
+        } // end if
+        else // user canceled instead of entering amount
+        {
+            screen.displayMessageLine("\nCanceling transaction...");
+        } // end else
+    } // end method execute
 
+    // prompt user to enter a deposit amount in cents
+    private double promptForDepositAmount() {
+        Screen screen = getScreen(); // get reference to screen
 
-    // ask user to enter the deposit amount
-   private double promptForDepositAmount() {
-// Code here for prompt user for the deposit
-       //input from screen
-       // check whether the user canceled transaction or entered a valid amount
-return 0;
+        // display the prompt
+        screen.displayMessage("\nPlease enter a deposit amount in " + "CENTS (or 0 to cancel): ");
+        int input = keypad.getInput(); // receive input of deposit amount
+
+        // check whether the user canceled or entered a valid amount
+        if (input == CANCELED)
+            return CANCELED;
+        else {
+            return (double) input / 100; // return dollar amount
+        } // end else
     }
 }

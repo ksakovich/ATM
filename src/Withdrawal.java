@@ -47,38 +47,60 @@ public class Withdrawal extends Transaction
 
     @Override
     public void execute() {
+        BankDatabase database = getBankDatabase();
+        Screen screen = getScreen();
+        int currentUserAccountNum = getAccountNumber();
+        double availableBalance = database.getAvailableBalance(currentUserAccountNum);
         // validate input from user
         boolean valid = false; // flag for user input validation
         while (!valid) {
+
             int userInput = displayWithdrawalMenu();
             switch (userInput) {
                 // $20
                 case 1: {
                     this.amount = 20;
                     valid = execute(amount);
+                    screen.displayMessage("\n Withrawal: " + amount  +"\n");
+                    availableBalance = database.getAvailableBalance(currentUserAccountNum);
+                    screen.displayMessage("Your available balance is: \n");
+                    screen.displayDollarAmount(availableBalance);
                     break;
                 }
                 // $40
                 case 2: {
                     this.amount = 40;
                     valid = execute(amount);
+                    screen.displayMessage("\n Withrawal: " + amount  +"\n");
+                    availableBalance = database.getAvailableBalance(currentUserAccountNum);
+                    screen.displayMessage("Your available balance is: \n");
+                    screen.displayDollarAmount(availableBalance);
                     break;
                 }
                 // $60
                 case 3: {
                     this.amount = 60;
                     valid = execute(amount);
+                    screen.displayMessage("\n Withrawal: " + amount  +"\n");
+                    availableBalance = database.getAvailableBalance(currentUserAccountNum);
+                    screen.displayMessage("Your available balance is: \n");
+                    screen.displayDollarAmount(availableBalance);
                     break;
                 }
                 // $80
                 case 4: {
                     this.amount = 80;
                     valid = execute(amount);
+                    screen.displayMessage("\n Withrawal: " + amount  +"\n");
+                    availableBalance = database.getAvailableBalance(currentUserAccountNum);
+                    screen.displayMessage("Your available balance is: \n");
+                    screen.displayDollarAmount(availableBalance);
                     break;
                 }
                 // other amount
                 case 5: {
                     this.amount = displayOtherAmountMenu();
+
                     if (this.amount == 0) {
                         getScreen().displayMessageLine("Goodbye."); // user took too long to respond
                         this.keypad = null; // disable further input

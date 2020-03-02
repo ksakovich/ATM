@@ -12,7 +12,7 @@ public class BalanceInquiry extends Transaction
         Screen screen = getScreen();
         int currentUserAccountNum = getAccountNumber();
         double availableBalabce = database.getAvailableBalance(currentUserAccountNum);
-        double totalBalance = database.getAvailableBalance(currentUserAccountNum);
+        double totalBalance = database.getTotalBalance(currentUserAccountNum);
         if(availableBalabce != totalBalance)
         {
             screen.displayMessage("Your available balance is: \n");

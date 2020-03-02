@@ -52,63 +52,67 @@ public class Withdrawal extends Transaction {
         return user_amount;
     }
 
-
     @Override
     public void execute() {
         BankDatabase database = getBankDatabase();
         Screen screen = getScreen();
         int currentUserAccountNum = getAccountNumber();
         double availableBalance = database.getAvailableBalance(currentUserAccountNum);
-        // validate input from user
-        boolean valid = false; // flag for user input validation
-        while (!valid) {
-
-            int userInput = displayWithdrawalMenu();
-            switch (userInput) {
-                // $20
-                case 1: {
-                    this.amount_to_withdraw = 20;
-                    valid = execute(amount_to_withdraw, currentAccountNumber);
-                    break;
-                }
-                // $40
-                case 2: {
-                    this.amount_to_withdraw = 40;
-                    valid = execute(amount_to_withdraw, currentAccountNumber);
-                    break;
-                }
-                // $60
-                case 3: {
-                    this.amount_to_withdraw = 60;
-                    valid = execute(amount_to_withdraw, currentAccountNumber);
-                    break;
-                }
-                // $80
-                case 4: {
-                    this.amount_to_withdraw = 80;
-                    valid = execute(amount_to_withdraw, currentAccountNumber);
-                    break;
-                }
-                // other amount
-                case 5: {
-                    this.amount_to_withdraw = displayOtherAmountMenu();
-                    valid = execute(amount_to_withdraw, currentAccountNumber);
-                    break;
-                }
-                // Exit or no response
-                case 6: {
-                    getScreen().displayMessageLine("Goodbye.");
-                    this.keypad = null; // don't allow further input
-                    valid = true; // exit withdrawal
-                    break;
-                }
-                // Wrong response
-                default: {
-                    getScreen().displayMessageLine("Please enter a valid option."); // user entered an invalid response
-                    break;
+        // Check if a user available balance < 20. $20 is minimum bill, ATM has.
+        if (availableBalance < 20) {
+            screen.displayMessage("Withdrawal option is unavailable, because your available balance is lower $20 ");
+        } else {    // validate input from user
+            boolean valid = false; // flag for user input validation
+            while (!valid) {
+                int userInput = displayWithdrawalMenu();
+                switch (userInput) {
+                    // $20
+                    case 1: {
+                        this.amount_to_withdraw = 20;
+                        valid = execute(amount_to_withdraw, currentAccountNumber);
+                        break;
+                    }
+                    // $40
+                    case 2: {
+                        this.amount_to_withdraw = 40;
+                        valid = execute(amount_to_withdraw, currentAccountNumber);
+                        break;
+                    }
+                    // $60
+                    case 3: {
+                        this.amount_to_withdraw = 60;
+                        valid = execute(amount_to_withdraw, currentAccountNumber);
+                        break;
+                    }
+                    // $80
+                    case 4: {
+                        this.amount_to_withdraw = 80;
+                        valid = execute(amount_to_withdraw, currentAccountNumber);
+                        break;
+                    }
+                    // other amount
+                    case 5: {
+                        this.amount_to_withdraw = displayOtherAmountMenu();
+                        valid = execute(amount_to_withdraw, currentAccountNumber);
+                        break;
+                    }
+                    // Exit or no response
+                    case 6: {
+                        getScreen().displayMessageLine("Goodbye.");
+                        this.keypad = null; // don't allow further input
+                        valid = true; // exit withdrawal
+                        break;
+                    }
+                    // Wrong response
+                    default: {
+                        getScreen().displayMessageLine("Please enter a valid option."); // user entered an invalid response
+                        break;
+                    }
                 }
             }
         }
+
+
     }
 
     // if the user entered a valid amount to withdraw, debit account, then dispense cash

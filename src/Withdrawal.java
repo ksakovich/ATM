@@ -60,45 +60,25 @@ public class Withdrawal extends Transaction
                 // $20
                 case 1: {
                     this.amount_to_withdraw = 20;
-                    valid = execute(amount_to_withdraw);
-                    screen.displayMessage("\nWithrawal: " + amount_to_withdraw +"\n");
-                    availableBalance = database.getAvailableBalance(currentUserAccountNum);
-                    screen.displayMessage("Your available balance is: \n");
-                    screen.displayDollarAmount(availableBalance);
-                    screen.displayMessage("\n");
+                    valid = execute(amount_to_withdraw,currentAccountNumber);
                     break;
                 }
                 // $40
                 case 2: {
                     this.amount_to_withdraw = 40;
-                    valid = execute(amount_to_withdraw);
-                    screen.displayMessage("\nWithrawal: " + amount_to_withdraw +"\n");
-                    availableBalance = database.getAvailableBalance(currentUserAccountNum);
-                    screen.displayMessage("Your available balance is: \n");
-                    screen.displayDollarAmount(availableBalance);
-                    screen.displayMessage("\n");
+                    valid = execute(amount_to_withdraw,currentAccountNumber);
                     break;
                 }
                 // $60
                 case 3: {
                     this.amount_to_withdraw = 60;
-                    valid = execute(amount_to_withdraw);
-                    screen.displayMessage("\nWithrawal: " + amount_to_withdraw +"\n");
-                    availableBalance = database.getAvailableBalance(currentUserAccountNum);
-                    screen.displayMessage("Your available balance is: \n");
-                    screen.displayDollarAmount(availableBalance);
-                    screen.displayMessage("\n");
+                    valid = execute(amount_to_withdraw,currentAccountNumber);
                     break;
                 }
                 // $80
                 case 4: {
                     this.amount_to_withdraw = 80;
-                    valid = execute(amount_to_withdraw);
-                    screen.displayMessage("\nWithrawal: " + amount_to_withdraw +"\n");
-                    availableBalance = database.getAvailableBalance(currentUserAccountNum);
-                    screen.displayMessage("Your available balance is: \n");
-                    screen.displayDollarAmount(availableBalance);
-                    screen.displayMessage("\n");
+                    valid = execute(amount_to_withdraw,currentAccountNumber);
                     break;
                 }
                 // other amount
@@ -109,7 +89,7 @@ public class Withdrawal extends Transaction
                         getScreen().displayMessageLine("Goodbye."); // user took too long to respond
                         this.keypad = null; // disable further input
                     } else {
-                        valid = execute(amount_to_withdraw);
+                        valid = execute(amount_to_withdraw,currentAccountNumber);
                     }
                     break;
                 }
@@ -129,14 +109,23 @@ public class Withdrawal extends Transaction
         }
     }
     // if the user entered a valid amount to withdraw, debit account, then dispense cash
-    // if for some reason the transaction couldn't be executed return control to user
-    private boolean execute(int amount) {
+    private boolean execute(int amount, int currentUserAccountNum) {
+        BankDatabase database = getBankDatabase();
+        Screen screen = getScreen();
+
         if (amount < getBankDatabase().getAvailableBalance(currentAccountNumber)) {
             getBankDatabase().debit(currentAccountNumber, amount); // remove money from user's balance
             cashDispenser.dispenseCash(amount); // dispense cash
+
+            // print results
+            screen.displayMessage("\nWithrawal: " + amount_to_withdraw +"\n");
+            screen.displayMessage("Your available balance is: \n");
+            screen.displayDollarAmount(database.getAvailableBalance(currentUserAccountNum));
+            screen.displayMessage("\n");
+
             return true;
         } else {
-            getScreen().displayMessageLine("Amount exceeds available funds."); // unable to remove
+            getScreen().displayMessageLine("Amount exceeds available funds. Please choose another option."); // unable to remove
             return false;
         }
     }

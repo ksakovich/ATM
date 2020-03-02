@@ -40,7 +40,7 @@
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true">
+    <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="ATMCaseStudy" />
       <module name="ATM" />
       <RunnerSettings RunnerId="Run" />
@@ -49,11 +49,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Main" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -102,10 +97,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="872" y="358" key="#Project_Structure/0.0.2560.1400@0.0.2560.1400" timestamp="1583129331291" />
-    <state x="734" y="355" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583129349037">
+    <state x="734" y="355" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583134811828">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="734" y="355" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1583129349037" />
+    <state x="734" y="355" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1583134811828" />
     <state x="1009" y="484" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1583129348052">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -115,26 +110,26 @@
     </state>
     <state x="500" y="1" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1582865378751" />
     <state x="1114" y="293" key="CommitChangelistDialog2/0.0.2560.1400@0.0.2560.1400" timestamp="1583129743072" />
-    <state width="2517" height="399" key="GridCell.Tab.0.bottom" timestamp="1583130866908">
+    <state width="2517" height="228" key="GridCell.Tab.0.bottom" timestamp="1583135939958">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="399" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1583130866908" />
-    <state width="2517" height="399" key="GridCell.Tab.0.center" timestamp="1583130866908">
+    <state width="2517" height="228" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1583135939958" />
+    <state width="2517" height="228" key="GridCell.Tab.0.center" timestamp="1583135939958">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="399" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1583130866908" />
-    <state width="2517" height="399" key="GridCell.Tab.0.left" timestamp="1583130866908">
+    <state width="2517" height="228" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1583135939958" />
+    <state width="2517" height="228" key="GridCell.Tab.0.left" timestamp="1583135939958">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="399" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1583130866908" />
-    <state width="2517" height="399" key="GridCell.Tab.0.right" timestamp="1583130866908">
+    <state width="2517" height="228" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1583135939958" />
+    <state width="2517" height="228" key="GridCell.Tab.0.right" timestamp="1583135939958">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="399" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1583130866908" />
-    <state x="794" y="413" key="com.intellij.ide.util.TipDialog" timestamp="1583130495231">
+    <state width="2517" height="228" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1583135939958" />
+    <state x="794" y="413" key="com.intellij.ide.util.TipDialog" timestamp="1583134797976">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="496" y="254" key="com.intellij.ide.util.TipDialog/0.0.1600.860@0.0.1600.860" timestamp="1582865124748" />
-    <state x="794" y="413" key="com.intellij.ide.util.TipDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1583130495231" />
+    <state x="794" y="413" key="com.intellij.ide.util.TipDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1583134797976" />
   </component>
 </project>

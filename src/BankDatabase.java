@@ -9,7 +9,7 @@ public class BankDatabase {
         accounts = new Account[3]; // just 2 accounts for testing
         accounts[0] = new Account(12345, 54321, 1000.0, 1200.0);
         accounts[1] = new Account(98765, 56789, 200.0, 200.0);
-        accounts[1] = new Account(1, 1, 50.0, 50.0);
+        accounts[2] = new Account(1, 1, 50.0, 50.0);
     }
 
     // retrieve Account object containing specified account number

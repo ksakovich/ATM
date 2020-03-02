@@ -1,7 +1,7 @@
 // atm transaction type withdrawal
 public class Withdrawal extends Transaction
 {
-    private int amount; // the amount the user wants to withdraw
+    private int amount_to_withdraw; // the amount the user wants to withdraw
     private int currentAccountNumber;
     private Keypad keypad; // form of input from user
     private CashDispenser cashDispenser;
@@ -59,9 +59,9 @@ public class Withdrawal extends Transaction
             switch (userInput) {
                 // $20
                 case 1: {
-                    this.amount = 20;
-                    valid = execute(amount);
-                    screen.displayMessage("\n Withrawal: " + amount  +"\n");
+                    this.amount_to_withdraw = 20;
+                    valid = execute(amount_to_withdraw);
+                    screen.displayMessage("\nWithrawal: " + amount_to_withdraw +"\n");
                     availableBalance = database.getAvailableBalance(currentUserAccountNum);
                     screen.displayMessage("Your available balance is: \n");
                     screen.displayDollarAmount(availableBalance);
@@ -69,9 +69,9 @@ public class Withdrawal extends Transaction
                 }
                 // $40
                 case 2: {
-                    this.amount = 40;
-                    valid = execute(amount);
-                    screen.displayMessage("\n Withrawal: " + amount  +"\n");
+                    this.amount_to_withdraw = 40;
+                    valid = execute(amount_to_withdraw);
+                    screen.displayMessage("\nWithrawal: " + amount_to_withdraw +"\n");
                     availableBalance = database.getAvailableBalance(currentUserAccountNum);
                     screen.displayMessage("Your available balance is: \n");
                     screen.displayDollarAmount(availableBalance);
@@ -79,9 +79,9 @@ public class Withdrawal extends Transaction
                 }
                 // $60
                 case 3: {
-                    this.amount = 60;
-                    valid = execute(amount);
-                    screen.displayMessage("\n Withrawal: " + amount  +"\n");
+                    this.amount_to_withdraw = 60;
+                    valid = execute(amount_to_withdraw);
+                    screen.displayMessage("\nWithrawal: " + amount_to_withdraw +"\n");
                     availableBalance = database.getAvailableBalance(currentUserAccountNum);
                     screen.displayMessage("Your available balance is: \n");
                     screen.displayDollarAmount(availableBalance);
@@ -89,9 +89,9 @@ public class Withdrawal extends Transaction
                 }
                 // $80
                 case 4: {
-                    this.amount = 80;
-                    valid = execute(amount);
-                    screen.displayMessage("\n Withrawal: " + amount  +"\n");
+                    this.amount_to_withdraw = 80;
+                    valid = execute(amount_to_withdraw);
+                    screen.displayMessage("\nWithrawal: " + amount_to_withdraw +"\n");
                     availableBalance = database.getAvailableBalance(currentUserAccountNum);
                     screen.displayMessage("Your available balance is: \n");
                     screen.displayDollarAmount(availableBalance);
@@ -99,13 +99,13 @@ public class Withdrawal extends Transaction
                 }
                 // other amount
                 case 5: {
-                    this.amount = displayOtherAmountMenu();
+                    this.amount_to_withdraw = displayOtherAmountMenu();
 
-                    if (this.amount == 0) {
+                    if (this.amount_to_withdraw == 0) {
                         getScreen().displayMessageLine("Goodbye."); // user took too long to respond
                         this.keypad = null; // disable further input
                     } else {
-                        valid = execute(amount);
+                        valid = execute(amount_to_withdraw);
                     }
                     break;
                 }

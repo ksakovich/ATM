@@ -1,13 +1,11 @@
 // atm transaction type withdrawal
-public class Withdrawal extends Transaction
-{
+public class Withdrawal extends Transaction {
     private int amount_to_withdraw; // the amount the user wants to withdraw
     private int currentAccountNumber;
     private Keypad keypad; // form of input from user
     private CashDispenser cashDispenser;
 
-    public Withdrawal(int currentAccountNumber, Screen screen, BankDatabase bankDatabase, Keypad keypad, CashDispenser cashDispenser)
-    {
+    public Withdrawal(int currentAccountNumber, Screen screen, BankDatabase bankDatabase, Keypad keypad, CashDispenser cashDispenser) {
         super(currentAccountNumber, screen, bankDatabase);
         this.currentAccountNumber = currentAccountNumber;
         this.keypad = keypad;
@@ -26,8 +24,7 @@ public class Withdrawal extends Transaction
             getScreen().displayMessageLine("5 - Other amount (multiple of 20)");
             getScreen().displayMessageLine("6 - Exit");
             return keypad.getInput();
-        }
-        catch(Exception e) {
+        } catch (Exception e) {
             // is it an error if the wait is interrupted, by user?
             getScreen().displayMessageLine(e.getMessage());
         }
@@ -35,15 +32,26 @@ public class Withdrawal extends Transaction
     }
 
     public int displayOtherAmountMenu() {
-        try {
-            wait(5000); // wait 5 seconds before timing out
+
+        boolean valid_user_input = false;
+        int user_amount = 0;
+        while (valid_user_input == false) {
             getScreen().displayMessageLine("Enter in multiples of $20");
-            return keypad.getInput();
-        } catch (InterruptedException e) {
-            System.out.println(e.getMessage());
+            user_amount = keypad.getInput();
+            if (user_amount == 0) {
+                getScreen().displayMessageLine("Error! Null entered.");
+            } else {
+                if (user_amount % 20 == 0) {
+                    valid_user_input = true;
+                    return user_amount;
+                } else {
+                    getScreen().displayMessageLine("Error!");
+                }
+            }
         }
-        return 0;
+        return user_amount;
     }
+
 
     @Override
     public void execute() {
@@ -60,37 +68,31 @@ public class Withdrawal extends Transaction
                 // $20
                 case 1: {
                     this.amount_to_withdraw = 20;
-                    valid = execute(amount_to_withdraw,currentAccountNumber);
+                    valid = execute(amount_to_withdraw, currentAccountNumber);
                     break;
                 }
                 // $40
                 case 2: {
                     this.amount_to_withdraw = 40;
-                    valid = execute(amount_to_withdraw,currentAccountNumber);
+                    valid = execute(amount_to_withdraw, currentAccountNumber);
                     break;
                 }
                 // $60
                 case 3: {
                     this.amount_to_withdraw = 60;
-                    valid = execute(amount_to_withdraw,currentAccountNumber);
+                    valid = execute(amount_to_withdraw, currentAccountNumber);
                     break;
                 }
                 // $80
                 case 4: {
                     this.amount_to_withdraw = 80;
-                    valid = execute(amount_to_withdraw,currentAccountNumber);
+                    valid = execute(amount_to_withdraw, currentAccountNumber);
                     break;
                 }
                 // other amount
                 case 5: {
                     this.amount_to_withdraw = displayOtherAmountMenu();
-
-                    if (this.amount_to_withdraw == 0) {
-                        getScreen().displayMessageLine("Goodbye."); // user took too long to respond
-                        this.keypad = null; // disable further input
-                    } else {
-                        valid = execute(amount_to_withdraw,currentAccountNumber);
-                    }
+                    valid = execute(amount_to_withdraw, currentAccountNumber);
                     break;
                 }
                 // Exit or no response
@@ -108,24 +110,25 @@ public class Withdrawal extends Transaction
             }
         }
     }
+
     // if the user entered a valid amount to withdraw, debit account, then dispense cash
     private boolean execute(int amount, int currentUserAccountNum) {
         BankDatabase database = getBankDatabase();
         Screen screen = getScreen();
 
-        if (amount < getBankDatabase().getAvailableBalance(currentAccountNumber)) {
+        if (amount <= getBankDatabase().getAvailableBalance(currentAccountNumber)) {
             getBankDatabase().debit(currentAccountNumber, amount); // remove money from user's balance
             cashDispenser.dispenseCash(amount); // dispense cash
 
             // print results
-            screen.displayMessage("\nWithrawal: " + amount_to_withdraw +"\n");
+            screen.displayMessage("\nWithrawal: " + amount_to_withdraw + "\n");
             screen.displayMessage("Your available balance is: \n");
             screen.displayDollarAmount(database.getAvailableBalance(currentUserAccountNum));
             screen.displayMessage("\n");
 
             return true;
         } else {
-            getScreen().displayMessageLine("Amount exceeds available funds. Please choose another option.");
+            getScreen().displayMessageLine("Amount exceeds available funds. Please choose another amount.");
             return false;
         }
     }

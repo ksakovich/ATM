@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4dfc3f0a-e1a1-40c3-8353-c611c118d8bb" name="Default" comment="resolved problem when user entersd amount exceeds Available Balance">
+    <list default="true" id="4dfc3f0a-e1a1-40c3-8353-c611c118d8bb" name="Default" comment="deleted comments">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Withdrawal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Withdrawal.java" afterDir="false" />
     </list>
@@ -89,7 +89,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583136109221</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="deleted comments">
+      <created>1583136169270</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1583136169270</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -98,7 +105,8 @@
     <MESSAGE value="add DepositSlot class" />
     <MESSAGE value="changed account to account_to_withdraw (Olga)" />
     <MESSAGE value="resolved problem when user entersd amount exceeds Available Balance" />
-    <option name="LAST_COMMIT_MESSAGE" value="resolved problem when user entersd amount exceeds Available Balance" />
+    <MESSAGE value="deleted comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="deleted comments" />
   </component>
   <component name="WindowStateProjectService">
     <state x="872" y="358" key="#Project_Structure" timestamp="1583129331291">
@@ -113,27 +121,31 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1009" y="484" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1583129348052" />
-    <state x="1114" y="293" key="CommitChangelistDialog2" timestamp="1583136107846">
+    <state x="1114" y="293" key="CommitChangelistDialog2" timestamp="1583136175828">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="500" y="1" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1582865378751" />
-    <state x="1114" y="293" key="CommitChangelistDialog2/0.0.2560.1400@0.0.2560.1400" timestamp="1583136107846" />
-    <state width="2517" height="228" key="GridCell.Tab.0.bottom" timestamp="1583135939958">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state x="1114" y="293" key="CommitChangelistDialog2/0.0.2560.1400@0.0.2560.1400" timestamp="1583136175828" />
+    <state width="1557" height="187" key="GridCell.Tab.0.bottom" timestamp="1583139621244">
+      <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="2517" height="228" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1583135939958" />
-    <state width="2517" height="228" key="GridCell.Tab.0.center" timestamp="1583135939958">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state width="1557" height="187" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1583139621244" />
+    <state width="2517" height="257" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1583138210720" />
+    <state width="1557" height="187" key="GridCell.Tab.0.center" timestamp="1583139621244">
+      <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="2517" height="228" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1583135939958" />
-    <state width="2517" height="228" key="GridCell.Tab.0.left" timestamp="1583135939958">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state width="1557" height="187" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1583139621244" />
+    <state width="2517" height="257" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1583138210720" />
+    <state width="1557" height="187" key="GridCell.Tab.0.left" timestamp="1583139621244">
+      <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="2517" height="228" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1583135939958" />
-    <state width="2517" height="228" key="GridCell.Tab.0.right" timestamp="1583135939958">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state width="1557" height="187" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1583139621244" />
+    <state width="2517" height="257" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1583138210720" />
+    <state width="1557" height="187" key="GridCell.Tab.0.right" timestamp="1583139621244">
+      <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="2517" height="228" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1583135939958" />
+    <state width="1557" height="187" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1583139621244" />
+    <state width="2517" height="257" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1583138210720" />
     <state x="794" y="413" key="com.intellij.ide.util.TipDialog" timestamp="1583134797976">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>

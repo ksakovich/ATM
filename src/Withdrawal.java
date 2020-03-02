@@ -65,6 +65,7 @@ public class Withdrawal extends Transaction
                     availableBalance = database.getAvailableBalance(currentUserAccountNum);
                     screen.displayMessage("Your available balance is: \n");
                     screen.displayDollarAmount(availableBalance);
+                    screen.displayMessage("\n");
                     break;
                 }
                 // $40
@@ -75,6 +76,7 @@ public class Withdrawal extends Transaction
                     availableBalance = database.getAvailableBalance(currentUserAccountNum);
                     screen.displayMessage("Your available balance is: \n");
                     screen.displayDollarAmount(availableBalance);
+                    screen.displayMessage("\n");
                     break;
                 }
                 // $60
@@ -85,6 +87,7 @@ public class Withdrawal extends Transaction
                     availableBalance = database.getAvailableBalance(currentUserAccountNum);
                     screen.displayMessage("Your available balance is: \n");
                     screen.displayDollarAmount(availableBalance);
+                    screen.displayMessage("\n");
                     break;
                 }
                 // $80
@@ -95,6 +98,7 @@ public class Withdrawal extends Transaction
                     availableBalance = database.getAvailableBalance(currentUserAccountNum);
                     screen.displayMessage("Your available balance is: \n");
                     screen.displayDollarAmount(availableBalance);
+                    screen.displayMessage("\n");
                     break;
                 }
                 // other amount

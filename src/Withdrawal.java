@@ -125,7 +125,7 @@ public class Withdrawal extends Transaction
 
             return true;
         } else {
-            getScreen().displayMessageLine("Amount exceeds available funds. Please choose another option."); // unable to remove
+            getScreen().displayMessageLine("Amount exceeds available funds. Please choose another option.");
             return false;
         }
     }

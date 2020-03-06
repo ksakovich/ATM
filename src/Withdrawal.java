@@ -20,9 +20,10 @@ public class Withdrawal extends Transaction {
             getScreen().displayMessageLine("1 - $20");
             getScreen().displayMessageLine("2 - $40");
             getScreen().displayMessageLine("3 - $60");
-            getScreen().displayMessageLine("4 - $80");
-            getScreen().displayMessageLine("5 - Other amount (multiple of 20)");
-            getScreen().displayMessageLine("6 - Exit");
+            getScreen().displayMessageLine("4 - $100");
+            getScreen().displayMessageLine("5 - $200");
+            getScreen().displayMessageLine("6 - Other amount (multiple of 20)");
+            getScreen().displayMessageLine("7 - Exit");
             return keypad.getInput();
         } catch (Exception e) {
             // is it an error if the wait is interrupted, by user?
@@ -84,20 +85,31 @@ public class Withdrawal extends Transaction {
                         valid = execute(amount_to_withdraw, currentAccountNumber);
                         break;
                     }
-                    // $80
+                    // $100
                     case 4: {
-                        this.amount_to_withdraw = 80;
+                        this.amount_to_withdraw = 100;
+                        valid = execute(amount_to_withdraw, currentAccountNumber);
+                        break;
+                    }
+                    //$200
+                    case 5: {
+                        this.amount_to_withdraw = 200;
                         valid = execute(amount_to_withdraw, currentAccountNumber);
                         break;
                     }
                     // other amount
-                    case 5: {
+                    case 6: {
                         this.amount_to_withdraw = displayOtherAmountMenu();
+                        if(this.amount_to_withdraw < 0)
+                        {
+                            getScreen().displayMessageLine("Amount must be greater than 0...");
+                            break;
+                        }
                         valid = execute(amount_to_withdraw, currentAccountNumber);
                         break;
                     }
                     // Exit or no response
-                    case 6: {
+                    case 7: {
                         getScreen().displayMessageLine("Goodbye.");
                         this.keypad = null; // don't allow further input
                         valid = true; // exit withdrawal

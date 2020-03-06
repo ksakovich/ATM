@@ -70,31 +70,72 @@ public class Withdrawal extends Transaction {
                     // $20
                     case 1: {
                         this.amount_to_withdraw = 20;
-                        valid = execute(amount_to_withdraw, currentAccountNumber);
+                        if(cashDispenser.isSufficientCashAvailable(amount_to_withdraw))
+                        {
+                            cashDispenser.dispenseCash(amount_to_withdraw);
+                            valid = execute(amount_to_withdraw, currentAccountNumber);
+                        }
+                        else
+                        {
+                            getScreen().displayMessageLine("Not enough cash available in ATM.");
+                        }
                         break;
                     }
                     // $40
                     case 2: {
                         this.amount_to_withdraw = 40;
-                        valid = execute(amount_to_withdraw, currentAccountNumber);
+                        if(cashDispenser.isSufficientCashAvailable(amount_to_withdraw))
+                        {
+                            cashDispenser.dispenseCash(amount_to_withdraw);
+                            valid = execute(amount_to_withdraw, currentAccountNumber);
+                        }
+                        else
+                        {
+                            getScreen().displayMessageLine("Not enough cash available in ATM.");
+                        }
                         break;
                     }
                     // $60
                     case 3: {
                         this.amount_to_withdraw = 60;
-                        valid = execute(amount_to_withdraw, currentAccountNumber);
+                        if(cashDispenser.isSufficientCashAvailable(amount_to_withdraw))
+                        {
+                            cashDispenser.dispenseCash(amount_to_withdraw);
+                            valid = execute(amount_to_withdraw, currentAccountNumber);
+                        }
+                        else
+                        {
+                            getScreen().displayMessageLine("Not enough cash available in ATM.");
+                        }
                         break;
                     }
                     // $100
                     case 4: {
                         this.amount_to_withdraw = 100;
-                        valid = execute(amount_to_withdraw, currentAccountNumber);
+
+                        if(cashDispenser.isSufficientCashAvailable(amount_to_withdraw))
+                        {
+                            cashDispenser.dispenseCash(amount_to_withdraw);
+                            valid = execute(amount_to_withdraw, currentAccountNumber);
+                        }
+                        else
+                        {
+                            getScreen().displayMessageLine("Not enough cash available in ATM.");
+                        }
                         break;
                     }
                     //$200
                     case 5: {
                         this.amount_to_withdraw = 200;
-                        valid = execute(amount_to_withdraw, currentAccountNumber);
+                        if(cashDispenser.isSufficientCashAvailable(amount_to_withdraw))
+                        {
+                            cashDispenser.dispenseCash(amount_to_withdraw);
+                            valid = execute(amount_to_withdraw, currentAccountNumber);
+                        }
+                        else
+                        {
+                            getScreen().displayMessageLine("Not enough cash available in ATM.");
+                        }
                         break;
                     }
                     // other amount
@@ -105,7 +146,15 @@ public class Withdrawal extends Transaction {
                             getScreen().displayMessageLine("Amount must be greater than 0...");
                             break;
                         }
-                        valid = execute(amount_to_withdraw, currentAccountNumber);
+                        if(cashDispenser.isSufficientCashAvailable(amount_to_withdraw))
+                        {
+                            cashDispenser.dispenseCash(amount_to_withdraw);
+                            valid = execute(amount_to_withdraw, currentAccountNumber);
+                        }
+                        else
+                        {
+                            getScreen().displayMessageLine("Not enough cash available in ATM.");
+                        }
                         break;
                     }
                     // Exit or no response

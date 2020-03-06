@@ -41,6 +41,7 @@ public class ATM {
             userAuthenticated = false; // reset before next ATM session
             currentAccountNumber = 0; // reset before next ATM session
             screen.displayMessageLine("\nThank you! Goodbye!");
+            screen.displayMessageLine("\n=========================================================");
         }
     }
 

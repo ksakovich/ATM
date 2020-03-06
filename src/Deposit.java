@@ -27,7 +27,8 @@ public class Deposit extends Transaction {
         amount = promptForDepositAmount(); // get deposit amount from user
 
         // check whether user entered a deposit amount or canceled
-        if (amount != CANCELED) {
+        if (amount != CANCELED)
+        {
             // request deposit envelope containing specified amount
             screen.displayMessage("\nPlease insert a deposit envelope containing ");
             screen.displayDollarAmount(amount);
@@ -50,6 +51,7 @@ public class Deposit extends Transaction {
                         "\nYou did not insert an " + "envelope, so the ATM has canceled your transaction.");
             } // end else
         } // end if
+
         else // user canceled instead of entering amount
         {
             screen.displayMessageLine("\nCanceling transaction...");
@@ -57,17 +59,27 @@ public class Deposit extends Transaction {
     } // end method execute
 
     // prompt user to enter a deposit amount in cents
-    private double promptForDepositAmount() {
+    private double promptForDepositAmount()
+    {
         Screen screen = getScreen(); // get reference to screen
 
         // display the prompt
-        screen.displayMessage("\nPlease enter a deposit amount in " + "CENTS (or 0 to cancel): ");
+        screen.displayMessage("\nPlease enter a deposit amount in " + "CENTS (or 0 to cancel): \n");
         int input = keypad.getInput(); // receive input of deposit amount
 
         // check whether the user canceled or entered a valid amount
         if (input == CANCELED)
+        {
             return CANCELED;
-        else {
+        }
+        else if(input < CANCELED)
+        {
+            screen.displayMessageLine("\nThe amount must be greater than 0...");
+            screen.displayMessageLine("\nCanceling transaction...");
+            return CANCELED;
+        }
+        else
+        {
             return (double) input / 100; // return dollar amount
         } // end else
     }

@@ -129,6 +129,8 @@ public class Withdrawal extends Transaction {
             screen.displayMessage("Your available balance is: \n");
             screen.displayDollarAmount(database.getAvailableBalance(currentUserAccountNum));
             screen.displayMessage("\n");
+            screen.displayMessage("Please take your money!");
+            screen.displayMessage("\n");
 
             return true;
         } else {

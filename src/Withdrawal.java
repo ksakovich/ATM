@@ -22,35 +22,13 @@ public class Withdrawal extends Transaction {
             getScreen().displayMessageLine("3 - $60");
             getScreen().displayMessageLine("4 - $100");
             getScreen().displayMessageLine("5 - $200");
-            getScreen().displayMessageLine("6 - Other amount (multiple of 20)");
-            getScreen().displayMessageLine("7 - Exit");
+            getScreen().displayMessageLine("6 - Exit");
             return keypad.getInput();
         } catch (Exception e) {
             // is it an error if the wait is interrupted, by user?
             getScreen().displayMessageLine(e.getMessage());
         }
         return 6;
-    }
-
-    public int displayOtherAmountMenu() {
-
-        boolean valid_user_input = false;
-        int user_amount = 0;
-        while (valid_user_input == false) {
-            getScreen().displayMessageLine("Enter in multiples of $20");
-            user_amount = keypad.getInput();
-            if (user_amount == 0) {
-                getScreen().displayMessageLine("Error! Null entered.");
-            } else {
-                if (user_amount % 20 == 0) {
-                    valid_user_input = true;
-                    return user_amount;
-                } else {
-                    getScreen().displayMessageLine("Error!");
-                }
-            }
-        }
-        return user_amount;
     }
 
     @Override
@@ -97,18 +75,8 @@ public class Withdrawal extends Transaction {
                         valid = execute(amount_to_withdraw, currentAccountNumber);
                         break;
                     }
-                    // other amount
-                    case 6: {
-                        this.amount_to_withdraw = displayOtherAmountMenu();
-                        if (this.amount_to_withdraw < 0) {
-                            getScreen().displayMessageLine("Amount must be greater than 0...");
-                            break;
-                        }
-                        valid = execute(amount_to_withdraw, currentAccountNumber);
-                        break;
-                    }
                     // Exit or no response
-                    case 7: {
+                    case 6: {
                         this.keypad = null; // don't allow further input
                         valid = true; // exit withdrawal
                         break;

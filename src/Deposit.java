@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 
 // Deposit.java
 // Represents a deposit ATM transaction
@@ -6,6 +7,7 @@ public class Deposit extends Transaction {
     private Keypad keypad; // reference to keypad
     private DepositSlot depositSlot; // reference to deposit slot
     private final static int CANCELED = 0; // constant for cancel option
+    private final static int INVALID = -1;
 
     // Deposit constructor
     public Deposit(int userAccountNumber,
@@ -48,7 +50,7 @@ public class Deposit extends Transaction {
                         + "be available until we verify the amount of any " + "enclosed cash and your checks clear.");
 // credit account to reflect the deposit
                 bankDatabase.credit(getAccountNumber(), amount);
-            } // end if
+            }
             else // deposit envelope not received
             {
                 screen.displayMessageLine(
@@ -66,25 +68,24 @@ public class Deposit extends Transaction {
     private double promptForDepositAmount()
     {
         Screen screen = getScreen(); // get reference to screen
-
+        int input = INVALID;
         // display the prompt
         screen.displayMessage("\nPlease enter a deposit amount in " + "CENTS (or 0 to cancel): \n");
-        int input = keypad.getInput(); // receive input of deposit amount
+        try {
+            input = keypad.getInput(); // receive input of deposit amount
+        } catch (InputMismatchException IMe) {
+            screen.displayMessageLine("Input " + IMe.getMessage() + "is invalid");
+            input = INVALID;
+        }
 
         // check whether the user canceled or entered a valid amount
-        if (input == CANCELED)
-        {
+        if (input == CANCELED) {
             return CANCELED;
-        }
-        else if(input < CANCELED)
-        {
+        } else if (input < CANCELED) {
             screen.displayMessageLine("\nThe amount must be greater than 0...");
             screen.displayMessageLine("\nCanceling transaction...");
             return CANCELED;
         }
-        else
-        {
-            return (double) input / 100; // return dollar amount
-        } // end else
+        return (double) input / 100; // return dollar amount
     }
 }

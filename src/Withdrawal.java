@@ -1,4 +1,11 @@
 // atm transaction type withdrawal
+/* Team C.C.C
+class 321 class ATM project
+Agata
+Nicole A Binette
+Benjamin D Carpenter
+Kirill Sakovich
+OLGA SYDORCHUK */
 public class Withdrawal extends Transaction {
     private int amount_to_withdraw; // the amount the user wants to withdraw
     private int currentAccountNumber;

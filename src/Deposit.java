@@ -1,5 +1,11 @@
 import java.util.InputMismatchException;
-
+/* Team C.C.C
+class 321 class ATM project
+Agata
+Nicole A Binette
+Benjamin D Carpenter
+Kirill Sakovich
+OLGA SYDORCHUK*/
 // Deposit.java
 // Represents a deposit ATM transaction
 public class Deposit extends Transaction {

@@ -1,6 +1,12 @@
 // BankDatabase.java
 // Represents the bank account information database
-
+/* Team C.C.C
+class 321 class ATM project
+Agata
+Nicole A Binette
+Benjamin D Carpenter
+Kirill Sakovich
+OLGA SYDORCHUK*/
 public class BankDatabase {
     private Account[] accounts; // array of Accounts
 

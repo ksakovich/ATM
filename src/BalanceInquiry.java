@@ -1,3 +1,10 @@
+/* Team C.C.C
+class 321 class ATM project
+Agata
+Nicole A Binette
+Benjamin D Carpenter
+Kirill Sakovich
+OLGA SYDORCHUK*/
 public class BalanceInquiry extends Transaction {
     // BalanceInquiry constructor
     public BalanceInquiry(int userAccountNumber, Screen atmScreen, BankDatabase atmBankDatabase) {

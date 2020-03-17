@@ -1,4 +1,11 @@
 // Keypad.java// Represents the keypad of the ATM
+/* Team C.C.C
+class 321 class ATM project
+Agata
+Nicole A Binette
+Benjamin D Carpenter
+Kirill Sakovich
+OLGA SYDORCHUK*/
 import java.util.Scanner;
 // program uses Scanner to obtain user input
 public class Keypad {

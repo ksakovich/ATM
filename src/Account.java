@@ -1,6 +1,12 @@
 // Account.java
 // Represents a bank account
-
+/* Team C.C.C
+class 321 class ATM project
+Agata
+Nicole A Binette
+Benjamin D Carpenter
+Kirill Sakovich
+OLGA SYDORCHUK*/
 public class Account {
     private int accountNumber; // account number
     private int pin; // PIN for authentication

@@ -1,6 +1,12 @@
 // CashDispenser.java
 // Represents the cash dispenser of the ATM
-
+/* Team C.C.C
+class 321 class ATM project
+Agata
+Nicole A Binette
+Benjamin D Carpenter
+Kirill Sakovich
+OLGA SYDORCHUK*/
 public class CashDispenser {
     // the default initial number of bills in the cash dispenser
     private final static int INITIAL_COUNT = 500;

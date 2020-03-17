@@ -1,6 +1,12 @@
 // Transaction.java
 // Abstract superclass Transaction represents an ATM transaction
-
+/* Team C.C.C
+class 321 class ATM project
+Agata
+Nicole A Binette
+Benjamin D Carpenter
+Kirill Sakovich
+OLGA SYDORCHUK*/
 public abstract class Transaction {
     private int accountNumber; // indicates account involved
     private Screen screen; // ATM's screen

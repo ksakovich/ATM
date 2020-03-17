@@ -1,4 +1,11 @@
 // Screen.java
+/* Team C.C.C
+class 321 class ATM project
+Agata
+Nicole A Binette
+Benjamin D Carpenter
+Kirill Sakovich
+OLGA SYDORCHUK*/
 // Represents the screen of the ATM
 public class Screen {
     // display a message without a carriage return
